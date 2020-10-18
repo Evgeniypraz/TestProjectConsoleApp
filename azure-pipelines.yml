@@ -21,7 +21,6 @@ steps:
   inputs:
     restoreSolution: '$(solution)'
     command: 'restore'
-    feedsToUse: 'config'
 
 - task: VSBuild@1
   inputs:
