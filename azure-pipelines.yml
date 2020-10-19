@@ -35,7 +35,7 @@ steps:
   displayName: 'test task powershell'
   inputs:
     targetType: filePath
-    filePath: '$(build.artifactStagingDirectory)'
+    filePath: '$(Build.ArtifactStagingDirectory)'
 
 
 
