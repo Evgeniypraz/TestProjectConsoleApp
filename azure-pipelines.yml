@@ -19,9 +19,6 @@ steps:
   inputs:
       checkLatest: true
 
-- task: NuGetCommand@2
-  inputs:
-    restoreSolution: '$(solution)'
 
 - task: VSBuild@1
   inputs:
@@ -30,13 +27,5 @@ steps:
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
 
-- task: VSTest@2
-  inputs:
-    platform: '$(buildPlatform)'
-    configuration: '$(buildConfiguration)'
-
-- task: PublishTestResults@2
-  inputs:
-   publishRunAttachments: true
     
 
