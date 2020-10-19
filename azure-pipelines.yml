@@ -32,3 +32,10 @@ steps:
     configuration: '$(buildConfiguration)'
 
 
+- task: PowerShell@2
+  displayName: 'test task powershell'
+  inputs:
+    targetType: inline
+
+
+
