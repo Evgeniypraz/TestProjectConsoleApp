@@ -26,8 +26,7 @@ steps:
 - task: PowerShell@2
   displayName: 'test task powershell'
   inputs:
-    targetType: filepath
-    filePath: 'D:\a\_temp\'
+    targetType: inline
     
 - task: VSBuild@1
   inputs:
