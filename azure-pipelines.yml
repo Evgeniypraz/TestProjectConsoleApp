@@ -23,7 +23,11 @@ steps:
   inputs:
       checkLatest: true
 
-
+- task: PowerShell@2
+  displayName: 'test task powershell'
+  inputs:
+    targetType: inline
+    
 - task: VSBuild@1
   inputs:
     solution: '$(solution)'
@@ -32,10 +36,7 @@ steps:
     configuration: '$(buildConfiguration)'
 
 
-- task: PowerShell@2
-  displayName: 'test task powershell'
-  inputs:
-    targetType: inline
+
 
 
 
