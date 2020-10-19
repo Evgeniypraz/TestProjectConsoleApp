@@ -30,6 +30,7 @@ steps:
     msbuildArgs: '/t:publish /p:PublishSingleFile=True /p:RuntimeIdentifier=win-x64 /p:outputpath=$(Build.ArtifactStagingDirectory)\'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+    
 - task: PowerShell@2
   displayName: 'test task powershell'
   inputs:
