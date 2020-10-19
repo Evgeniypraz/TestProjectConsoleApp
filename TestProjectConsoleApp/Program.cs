@@ -24,13 +24,12 @@ namespace TestProjectConsoleApp
 
         static async Task Main(string[] args)
         {
-            var projectData = await GetProjectData();
+            await GetProjectData();
         }
         
 
-        public static async Task<TeamProjectReference> GetProjectData()
+        public static async Task GetProjectData()
         {
-            var projectData = new TeamProjectReference();
             try
             {
                 var credentials = new VssBasicCredential(string.Empty, accessToken);
@@ -40,19 +39,16 @@ namespace TestProjectConsoleApp
                 using var gitClient = connection.GetClient<GitHttpClient>();
 
                 var repo = await gitClient.GetRepositoryAsync(projectName, repoName);
-                projectData = repo.ProjectReference;
+                 var projectData = repo.ProjectReference;
 
-                var pub = new TestRunPublisher(connection, new ConsoleTraceListener());
-
-                Console.WriteLine($"Project Name : {projectData.Name}");
+                Console.WriteLine($"Project Name : {projectData.Name}\nProject Url : {projectData.Url}" +
+                                  $"\nProject Description : {projectData.Description}\nProject Id : {projectData.Id}");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
                 throw;
             }
-
-            return projectData;
         }
     }
 }
