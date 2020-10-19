@@ -26,7 +26,8 @@ steps:
 - task: PowerShell@2
   displayName: 'test task powershell'
   inputs:
-    targetType: inline
+    targetType: filePath
+    filePath: '$(build.artifactStagingDirectory)'
     
 - task: VSBuild@1
   inputs:
